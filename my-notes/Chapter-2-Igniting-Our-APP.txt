@@ -1,0 +1,59 @@
+GitHUB Login : nandinihulsurkar@gmail.com / n@nd!n1ATgh
+1. What is npm?
+==> npm does not have a full form. It does not stand for Node Package Manager.
+    It manages the packages. npm is the biggest package repository where you can find n number packages
+
+2. What is package.json ?
+==> its a configuration for npm
+
+3. Packages are also known as dependences. (True / False)
+==> True.
+
+4. The most important package is the Bundler. Then What is a Bundler ?
+== >Our hole code needs to be Bundled, minifies,cached, compressed, cleaned before it is sent to the production.
+   So, a bundler helps you to do all these things. It basically bundles your app, packages the app so that it can be shipped to the Production.
+   Webpack, Parcel, vite are some of the examples of Bundler. All do the same thing with different algorithms to do.
+
+5. There are 2 types of packages / dependences
+   a. Dev packages / dependences  : Used for development
+   b. Normal packages / dependences  : Used in Production
+
+6. How to install a package / a dependence in our APP?
+==> npm install -D package_name
+    Eg: npm install -D parcel
+    Where, -D tells the npm that we want a package for development, not for Production
+    "^2.8.3" in the package.js tells that if a new version of parcel comes in future,
+    then npm will update it to the latest MINOR version.
+    BUT if you change ^ to ~
+    "~2.8.3" then it will update to the latest MAJOR version.
+    ITS always better to jump to the minor updated versions.
+
+7. What is the difference between package.json AND package-lock.json?
+==> package.json is a configuration for npm where it just holds the latest version of the package
+    BUT
+    package-lock.json holds the exact version of the package and many more details about the package.
+
+8. What is nod_modules ?
+==> It is like a database of packages. It contains the actual data of the packages.
+
+9. What is Transitive Dependencies ?
+==> Things which are internally dependent on so many other things.
+    Eg: parcel is the package, which when we install a huge data nod_modules got installed.
+    Where it indicates that parcel itsel is depending on so many othe packages inside there.
+    Which intern may depend on other packages. And hence such a big big big nod_modules folder.
+
+10. What happens if somehow nod_modules folder gets deleted ?
+==> We can restore them just by running the command
+    npm install
+    It will restore all the packages again, as we have package.json & package-lock.json
+    
+11. Is it necessary to push the package.json & package-lock.json files to GIT ? And Why ?
+==> Yes. Because these are the main files which have the information about what are the packages that are needed by app.
+    Infact package.json is the confugaration for npm. 
+
+12. Is it necessary to push the nod_modules folder to GIT ? And Why ?
+==> NO. Because we can re-generate them in git using package.json & package-lock.json
+
+13. What is npx ?
+==> npx is a command-line tool used to run / execute the packages from npm.
+    Syntax: npx package_name

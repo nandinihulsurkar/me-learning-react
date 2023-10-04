@@ -1,0 +1,26 @@
+{
+  "name": "me-learning-react",
+  "version": "1.0.0",
+  "description": "my place to learn react",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nandinihulsurkar/me-learning-react.git"
+  },
+  "author": "Aashay Saini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nandinihulsurkar/me-learning-react/issues"
+  },
+  "homepage": "https://github.com/nandinihulsurkar/me-learning-react#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

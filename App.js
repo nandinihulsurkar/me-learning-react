@@ -1,7 +1,10 @@
+import React from "react";
+import ReactDOM  from "react-dom/client";
+
 const heading = React.createElement(
     "h1",
-    {id:"heading", class:"its_h1"},
-    "Namastey React from react!!"
+    {id:"heading", className:"its_h1"},
+    "Namastey React from react"
 );
 //NOTE: heading here is just a normal javascript object which is created using React.createElement
 

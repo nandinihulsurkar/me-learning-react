@@ -1,7 +1,29 @@
-.its_h1{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+#main_div{
+    /*border: 1px solid black;*/    
+    border-radius: 0.4cm;
+    margin: 5px;
+    padding: 5px;
 }
 
-#heading{
-    color: green;
+#header_container{
+    border: 1px solid rgb(227, 67, 67);
+    height: 60px;
+    padding: 5px;
+    text-align: center;
 }
+
+#left_header{
+   border: 1px solid green;
+   width: 25%;
+   height: 25px;;
+}
+
+#right_header{
+    border: 1px solid green;
+    float: right;
+    width:auto;
+    height: 40px;
+    padding-right: 30px;
+}
+

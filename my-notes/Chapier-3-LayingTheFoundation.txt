@@ -1,0 +1,55 @@
+
+
+CHAPTER 3 : Laying The Foundation
+---------------------------------
+
+===> NOW, instead of using "npx parcel index.html" to run our app, we can just do
+  "npm run start" OR "npm start" (That is npm run start === npm start)
+   By adding a line of code in package.json file in the scripts section as "start": "parcel index.html"
+   Please refer the package.json to clarify this
+   SO from now on, we will just use npm start OR npm run start to run our APP
+   
+   NOTE 1: npx is a package running tool that comes with npm and is used to run / execute the packages from npm.
+   Syntax: npx package_name file_name
+
+   NOTE 2: It manages the packages. npm is the biggest package repository where you can find n number packages
+   * npm init : Its a command used in Node.js to initialize a Node.js project / Package
+   * When we do npm init, it creates a package.json file
+
+===> Simillarly, instead of using "npx parcel build index.html" to build our app, we can just do
+   "npm run build"   
+   By adding a line of code in package.json file in the scripts section as "build": "parcel build index.html"
+   Please refer the package.json to clarify this
+   SO from now on, we will just use "npm run build" To Build our APP / Project
+   (NOTE: we can not use npm build as we did for start. We have to use it as "npm run build").
+
+===> What is JSX?
+Ans: JSX stands for "JavaScript XML".
+    JSX allows you to write HTML-like code within your JavaScript code, 
+    making it easier to define the structure of your user interfaces.
+    NOTE 1 : JSX is NOT a HTML inside JS. BUT we can say its a HTML-like / XML-like syntax.
+    
+    NOTE 2 : The HTML-like code written using JSX in the JS file is not a pure JS.
+             This code is not understood by the JS engine. Hence Babel comes into picture.
+             ** Babel is a JS Compiler which converts this JSX code into code that is understood by JS and 
+             then will be rendered as HTML. 
+
+
+===> Is JSX part of React ?
+Ans: NOOOO. JSX (JavaScript XML) exists within JavaScript code.
+
+===> Can we build an app without using JSX ?
+Ans: YESSSSS. we can. BUT JSX makes the developers life very easy.
+   That is, developing using JSX is really very easy.
+
+===> What is a Component in React ?
+Ans: In React, a component is a reusable and self-contained building block of a user interface (UI). 
+     There are 2 ways to create the components in React
+     1. Class Based Components : OLD style of creating components which uses JS classes to create a component
+     2. Functional Components : New way of creating components which uses JS functions to create a component
+        Its nothing but just a normal JS function which returns some piece of JSX.
+        NOTE : A react Functional component should start with CAPITAL letters otherswise it will create an error
+
+===> What is component composition?
+Ans: Composing one or more components together is called Component Composition.
+

@@ -1,0 +1,30 @@
+
+Chapter 4 : Talk Is Cheap Show Me The Code
+-----------------------------------------------------------------
+
+===> What is config driven UI?
+Ans: That UI which is driven by the data.
+     A "config-driven UI" refers to a user interface (UI) design or framework that allows you to define and customize the appearance and behavior of the UI elements using configuration or settings rather than hard-coding them in the application's source code.
+     
+     Eg: the UI of swiggy / zomato will be different in different cities.
+     Beause the colors, the offers etc would be different for different places.
+
+===> What is JSON?
+Ans: * JSON stands for JavaScript Object Notation.
+
+     * JSON is often used for transmitting data between a server and a web application, as well as for   configuration files and data storage.
+
+     * JSON is used to serialize (convert data into a format that can be easily stored or transmitted) and deserialize (convert the serialized data back into its original form) data. It allows programs to exchange data in a structured format.
+
+     *  It is a lightweight data-interchange format that is easy for humans to read and write, and easy for      machines to parse and generate
+
+    * Its nothing but a collection of data in key-value pairs enclosed in curly braces.
+
+===> Understand map function of JS very very clearly.
+
+
+===> Using indexes as keys is not a good practice in react. WHY ?
+Ans: * Performance: When you use indexes as keys and change the order of items in a large list, 
+     it can negatively impact the performance of your application. React may have to do more work to reconcile the changes.
+
+     * Uniqueness of Keys: Keys should be unique among siblings. When you use indexes as keys, there's a possibility of duplicate keys if two elements in the list have the same value. This can lead to unexpected behavior.

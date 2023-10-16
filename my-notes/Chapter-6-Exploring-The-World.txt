@@ -1,0 +1,24 @@
+
+===> Monolith Architecture
+
+
+===> Micro service Architecture
+
+==> The 2 approaches to know how the web apps / UI applications fetche the data from the Backend
+    * First Approach is :: As soon as the page loads -> make the API call to, wait for data to come ->  then render the UI
+	* Second Approach is :: As soon as the page loads -> we'll render the UI -> Then make the API -> Then  
+	   and as soon as the data comes from API, render the data very quickly
+	   
+	* NOTE: In React, we should always use the 2nd approach
+	
+===> What is CORS?
+Ans: CORS - Cross Origin Resourse Sharing
+
+===> What is useEffect()?
+Ans: useEffect() is a hook in React, introduced in React 16.8, that allows you to perform side effects in your functional components.
+     * Side effects can include
+	   - data fetching,
+	   - DOM manipulation,
+	   - setting up subscriptions, or 
+	   - manually changing the React component's state.
+	

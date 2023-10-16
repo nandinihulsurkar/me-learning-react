@@ -1,0 +1,41 @@
+
+Chapter 5 : Lets Get Hooked
+
+
+===> Whenever you create a file for a component, make sure the file name and the component name is exactly same.
+     This is just to make sure that anyone looking for the code would easily get it.
+     Eg: Header.js means It contains the Component "Header" surely in it.
+
+===> The component file name can be 
+     - .js (as its a javascript code)
+     - .jsx (as it javascript extension) OR 
+     - .tsx (as type script)
+     Using anything is one and the same.
+
+===> What is a Hook?
+Ans: A hook is just a normal javascript utility function which is given by react.
+     * These are written by Facebook developer
+     * We can find it in the react package which we have installed already
+
+===> 2 very important Hooks are : useState() & useEffect()
+
+===> useState() : Used to generate super powerful state variables in react
+     * Why is it called state variable : Because it maintans the state of the component
+     * WHENEVER a state variable updates, the React re-renders the component.
+       Thats how useState() is used to keep data layer In-Sink with the UI layer
+
+===> What is React Fiber Architecture?
+Ans: React Fiber Architecture is an ongoing re-implementation of React's core algorithm.
+     * Its headline feature is incremental rendering: the ability to split rendering work into chunks and spread it out over multiple frames.
+
+===> What is a virtual DOM ? AND What is Reconciliation Algorithm ?
+Ans: The virtual DOM (VDOM) is a programming concept where a “virtual”, representation of a UI is kept in memory and synced with the “real” DOM 
+     by a library such as ReactDOM. This process is called reconciliation.
+	 * Reconciliation Algorithm: Its the algorithm used by react to find out the difference in virtual DOM and then updating the actual DOM
+	 
+===> Is the Shadow DOM the same as the Virtual DOM?
+Ans: No, they are different.
+     * The Shadow DOM is a browser technology designed primarily for scoping variables and CSS in web components.
+	 * The virtual DOM is a concept implemented by libraries in JavaScript on top of browser APIs.
+
+

@@ -1,72 +1,87 @@
-GitHUB Login : nandinihulsurkar@gmail.com / n@nd!n1ATgh
+ GitHUB Login : nandinihulsurkar@gmail.com / n@nd!n1ATgh
 
-1. What is npm?
-==> npm does not have a full form. It does not stand for Node Package Manager.
-    It manages the packages. npm is the biggest package repository where you can find n number packages
-    * npm init : Its a command used in Node.js to initialize a Node.js project / Package
-    * When we do npm init, it creates a package.json file
+===> What is npm?
+Ans: npm does not have a full form. It does not stand for Node Package Manager.
+     npm is the world's largest software/package repository where you can find n number packages
+	 * It manages the packages.
+     * npm init : Its a command used in Node.js to initialize a Node.js project / Package
+     * When we do npm init, it creates a package.json file
 
-2. What is package.json ?
-==> its a configuration file for npm which it uses to manage the packages installed in our project
+===> What is package.json ?
+Ans: Its a configuration file for npm which it uses to manage the packages installed in our project
 
-3. Packages are also known as dependences. (True / False)
-==> True.
+===> Packages are also known as dependences. (True / False)
+Ans: True.
 
-4. The most important package is the Bundler. Then What is a Bundler ?
-==> Our hole code needs to be Bundled, minifies,cached, compressed, cleaned before it is sent to the production.
-   So, a bundler helps you to do all these things. It basically bundles your app
-   -so that it can be moved to the Production.
-   Webpack, Parcel, vite are some of the examples of Bundler.
-   All do the same thing with different algorithms to bundle our code.
+===> The most important package is the Bundler. Then What is a Bundler ?
+Ans: Our hole code needs to be Bundled, minifies,cached, compressed, cleaned before it is sent to the production.
+     So, a bundler helps you to do all these things.
+	 It basically bundles your app so that it can be moved to the Production.
+     Eg: Webpack, Parcel, vite are some of the examples of Bundler.
+     All do the same thing with different algorithms to bundle our code.
 
-5. There are 2 types of packages / dependences
-   a. Dev packages / dependences  : Used for development
-   b. Normal packages / dependences  : Used in Production
+===> There are 2 types of packages / dependences
+Ans: a. Dev packages / dependences  : Used for development
+     b. Normal packages / dependences  : Used in Production
 
-6. How to install a package / a dependence in our APP?
-==> npm install -D package_name
-    Eg: npm install -D parcel
-    Where, -D tells the npm that we want a package for development, not for Production
-    "^2.8.3" in the package.js tells that if a new version of parcel comes in future,
-    then npm will update it to the latest MINOR version.
-    BUT if you change ^ to ~
-    "~2.8.3" then it will update to the latest MAJOR version.
-    ITS always better to jump to the minor updated versions.
+===> How to install a package / a dependence in our APP?
+Ans: npm install -D package_name
+     Eg: npm install -D parcel	 
+     Where, -D tells the npm that we want a package for development, not for Production
+     
+	 "^2.8.3" in the package.js tells that if a new version of parcel comes in future,
+     then npm will update it to the latest MINOR version.
+     BUT if you change ^ to ~
+     "~2.8.3" then it will update to the latest MAJOR version.
+     ITS always better to jump to the minor updated versions.
 
-    npm install -D parcel
-    Will create the package-lock.json And node_modules folder
+     npm install -D parcel
+     Will create the package-lock.json And node_modules folder
 
-7. What is the difference between package.json AND package-lock.json?
-==> package.json is a configuration for npm where it just holds the version of the package 
-    which was installed while creating the package
-    BUT
-    package-lock.json holds the latest / exact version of the package that is being installed 
-    and many more details about the package.
+===> What is the difference between package.json AND package-lock.json?
+Ans: * package.json is the main configuration file for a Node.js project.
+	 * This gets created when we do "npm init"
+     * It contains about the project, such as its name, version, description, author, and license etc..
+	 * It also contains the projects direct dependences with its minimal data such as name and version.
+	 * It is typically maintained by the developer or project manager.
+	 * Developers can manually edit this file to update dependencies or other project-related information.
+     
+     BUT
+	 
+     * package-lock.json file is automatically generated and maintained by npm (or Yarn) when you install or update 
+	   dependencies in your project using commands like npm install or npm update.
+     * It includes a complete dependency tree, including transitive (indirect) dependencies, and their respective versions.
+	 
+	 
+===> What is node_modules ?
+Ans: * It is like a database of packages. It contains the actual data of the packages.
+     * This folder contains all the external dependencies and libraries required for your project to function.
+	 * It's managed by a package manager and should not be directly modified by developers.
+	 * The package manager takes care of installing, updating, and managing the packages stored in this directory based on 
+	   the project's package.json and package-lock.json (or yarn.lock) files.
 
-8. What is node_modules ?
-==> It is like a database of packages. It contains the actual data of the packages.
+===> What is Transitive Dependencies ?
+Ans: Things which are internally dependent on so many other things.
+     Eg: parcel is the package, which when we install a huge data nod_modules got installed.
+     Where it indicates that parcel is depending on so many other packages inside there.
+     Which intern may depend on other packages. And hence such a big big big nod_modules folder.
 
-9. What is Transitive Dependencies ?
-==> Things which are internally dependent on so many other things.
-    Eg: parcel is the package, which when we install a huge data nod_modules got installed.
-    Where it indicates that parcel is depending on so many other packages inside there.
-    Which intern may depend on other packages. And hence such a big big big nod_modules folder.
-
-10. What happens if somehow nod_modules folder gets deleted ?
-==> We can restore them just by running the command
-    npm install
-    It will restore all the packages again, as we have package.json & package-lock.json
+===> What happens if somehow nod_modules folder gets deleted ?
+Ans: We can restore them just by running the command "npm install"
+     It will restore all the packages again, as we have package.json & package-lock.json
     
-11. Is it necessary to push the package.json & package-lock.json files to GIT ? And Why ?
-==> Yes. Because these are the main files which have the information about what are the packages that are needed 
-    by app. Infact package.json is the confugaration for npm. 
+===> Is it necessary to push the package.json & package-lock.json files to GIT ? And Why ?
+Ans: Yes. Because these are the main files which have the information about what are the packages that are needed 
+     by app. Infact package.json is the confugaration for npm. 
 
-12. Is it necessary to push the nod_modules folder to GIT ? And Why ?
-==> NO. Because we can re-generate them in git using package.json & package-lock.json
+===> Is it necessary to push the nod_modules folder to GIT ? And Why ?
+Ans: NO. Because we can re-generate them in git using package.json & package-lock.json
 
-13. What is npx ?
-==> npx is a package running tool that comes with npm and is used to run / execute the packages from npm.
-    Syntax: npx package_name file_name
-    Eg: npx parcel index.html
-    Running this command line will basically create a server for us at http://localhost:1234
-    which points to our index.html file. Now you access your project using this link
+===> What is npx ?
+Ans: npx is a package running tool that comes with npm and is used to run / execute the packages from npm.
+     Syntax: npx package_name file_name
+     Eg: npx parcel index.html
+     Running this command line will basically create a server for us at http://localhost:1234
+     which points to our index.html file. Now you access your project using this link
+	 
+	 

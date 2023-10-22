@@ -23,6 +23,14 @@ Ans: A hook is just a normal javascript utility function which is given by react
      * Why is it called state variable : Because it maintans the state of the component
      * WHENEVER a state variable updates, the React re-renders the component.
        Thats how useState() is used to keep data layer In-Sink with the UI layer
+	   
+	 * ALWAYS use useState just after the component starts. on top of all the code present inside the component.
+	   
+	 * NEVER create the useState variables outside the component. It gives the following error otherwise
+	 ERROR : Invalid hook call. Hooks can only be called inside of the body of a function component.
+	 BECAUSE, useState is used to create LOCAL state variables inside the functional component
+	 
+	 * NEVER create the useState variables inside the if else statements (in conditions), for loops not even inside functions. This may create inconsistency in the code.
 
 ===> What is React Fiber Architecture?
 Ans: React Fiber Architecture is an ongoing re-implementation of React's core algorithm.

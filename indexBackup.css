@@ -1,0 +1,176 @@
+
+
+/* START - start of the css for the header */
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.logo{
+    width: 200px;
+}
+
+.nav-items{
+    padding: 30px 100px;
+}
+
+.nav-items > ul{
+    display: flex;
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.nav-items > ul >li{
+    padding-right: 30px;
+    cursor: pointer;
+}
+/* END - End of the css for the header */
+
+
+/* START - start of the css for the body */
+.search-bar{
+    padding: 20px;
+    display: flex;
+}
+
+.search-text-box{
+    padding: 3px;
+    margin-right: 5px;
+    width: 250px;
+}
+
+.filter_btns{
+    cursor: pointer;
+    padding: 3px;
+    margin-right: 10px;
+}
+
+.restro-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 15px;
+}
+
+.restro-card{
+    width: 200px;
+    min-height: 350px;
+    padding: 5px;
+    margin: 10px 5px;
+    overflow: auto;
+}
+.restro-card:hover {
+    border: 1px solid green;
+}
+
+.restorent-logo{
+    width: 100%;
+    height: 175px;
+    cursor: pointer;
+}
+
+.loadinggggDiv{
+    padding-left: 40%;
+}
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 15px;
+}
+
+.shimmer-card{
+    width: 200px;
+    min-height: 400px;
+    padding: 5px;
+    margin: 10px 5px;
+}
+/* END - end of the css for the body */
+
+/* START - end of the css for the footer */
+#footer{
+    border: 1px solid black;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.left-footer{
+    float: left;
+}
+
+.footer-img{
+    height: 50px;
+}
+
+.right-footer{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+    font-size: 15px;
+    float: right;
+    width: 92%;
+    padding-top: 4px;
+    font-style:italic;
+}
+/* END - end of the css for the footer */
+
+/* START - start of the css for the About Us Page */
+.abt-us-user-card{
+    width: 400px;
+    height: 360px;
+    border-radius: 10px;
+    border: 1px solid cornflowerblue;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.abtus_card_logo:hover {
+    background-color: cornflowerblue;
+    color:#FFFFFF;
+}
+
+.abtus_card_logo{
+    width: 120px;
+    height: 120px;
+    margin-top: 10px;
+}
+
+.abtus_span{
+    padding: 5px;
+}
+
+.abtus_divs{
+    display: flex;
+}
+/* END - end of the css for the About Us Page */
+
+/* START - start of the css for the Restaurant Menu Page */
+#the_rest_menu_container{
+    justify-content: center;
+    align-items: center;
+
+   
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+#rm_rest_details{
+    display: flex;
+}
+/* END - end of the css for the Restaurant Menu Page */
+
+
+#page-not-found{
+    text-align: center;
+}
+
+.pageNF-img{
+    width: 600px;
+}
+
+li a {
+    text-decoration: none;
+    color: red;
+}

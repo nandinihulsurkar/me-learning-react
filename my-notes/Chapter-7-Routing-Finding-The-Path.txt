@@ -1,0 +1,10 @@
+
+Chapter 7 - Finding The Path : Routing
+
+===> 2 types of routing in web apps. Client Side Routing & Server Side Routing
+
+
+===> React is a singlepage application because of Client Side Routing. No page is reloading here.
+     Only the components are rendered however required. No network call is make until we do any network call the api networlk call
+
+===> We learnt about "createBrowserRouter, RouterProvider, Outlet" , "Link"	, "useRouteError" provided by react-router-dom Library 

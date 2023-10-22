@@ -1,0 +1,17 @@
+
+Chapter 9 :: Optimizing Our App
+
+
+===> Single Responsibility Principle
+Ans: this means that a component should encapsulate and handle a single, well-defined concern or responsibility within your software system.
+     It should not have multiple unrelated responsibilities or concerns bundled together.
+	  
+===> Advantages Single Responsibility Principle
+Ans: * Improved Maintainability : When a code has a single responsibility, it becomes easier to maintain it.
+     * Enhanced Reusability : 
+	 * Better Testability
+	 * Reduced Risk of Bugs
+	  
+===> Chunking, Code Spliting, Dynamic bubdling, Lazy Loading, On demand loading :: Break your app into smaller logical chunks
+
+

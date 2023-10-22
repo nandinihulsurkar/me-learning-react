@@ -1,29 +1,39 @@
 
 import { useState } from "react";
-import { LOGO_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
+
+import useOnlineStatus from "../utils/useOnlineStatus";
+
+import theLogoImg from "../images/the-logo.png";
 
 const Header = () => {
-
-    const [loginLogoutBtn, setLoginLogoutBtn] = useState("Login");
+    
+    const [loginLogoutBtn, setLoginLogoutBtn] = useState("Login"); 
     
     return(
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src={LOGO_URL} />                
-            </div>
-            <div className="nav-items">
-                <ul> 
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                    <button
+        <div className="flex justify-between h-16 px-2 mt-2">
+            <div class="bg-red-500 w-80">
+                <p class="text-white font-extrabold p-4">
+                🥘🍟 Are You Hungry ? 🍟🥘
+                </p>
+            </div>         
+            <div className="w-5/6 bg-red-500 text-white font-medium">
+                <ul className="flex mt-[18px] justify-around">
+                    <li>
+                        Online Status: {useOnlineStatus ? "🟢" : "🔴"}
+                    </li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/aboutus">About Us</Link></li>
+                    <li><Link to="/contactus">Contact Us</Link></li>
+                    <li>
+                    <button className="px-4 h-8 text-white bg-red-400 rounded-md"
                         onClick={() => {
                             (loginLogoutBtn === "Login") ? setLoginLogoutBtn("Logout") : setLoginLogoutBtn("Login")
                         }}
                     >                    
                     {loginLogoutBtn}
                     </button>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -25,8 +25,7 @@ CHAPTER 3 : Laying The Foundation
 
 ===> What is JSX?
 Ans: JSX stands for "JavaScript XML".
-    JSX allows you to write HTML-like code within your JavaScript code, 
-    making it easier to define the structure of your user interfaces.
+    JSX allows you to write HTML-like code within your JavaScript code, making it easier to define the structure of your user interfaces.
     NOTE 1 : JSX is NOT a HTML inside JS. BUT we can say its a HTML-like / XML-like syntax.
     
     NOTE 2 : The HTML-like code written using JSX in the JS file is not a pure JS.

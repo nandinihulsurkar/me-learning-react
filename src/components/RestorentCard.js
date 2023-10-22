@@ -1,21 +1,21 @@
 
-const restCardStyle = {
-    backgroundColor: "#F0F0F0"
+const xxx = {
+    
 }
 
 const RestorentCard = (props) => {   
     const {restData} = props;    
     return(
-        <div className="restro-card" style={restCardStyle} >
+        <div className="flex flex-wrap w-[220px] h-[400px] m-2 rounded-2xl bg-gray-100 hover:bg-gray-200" >
             <img 
-                className="restorent-logo" 
+                className="p-2 w-[220px] h-[200px] rounded-2xl" 
                 alt="restorent logo here" 
                 src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + restData.info.cloudinaryImageId}
             />
-            <h3>{restData.info.name}</h3>
-            <h5>{restData.info.cuisines.join(", ")}</h5>
-            <h5>{restData.info.avgRating} Stars</h5>
-            <h5>Devivered in {restData.info.sla.deliveryTime} Mins</h5>
+            <span className="px-2 w-[220px] text-red-500 font-mono">{restData.info.name}</span>
+            <span className="px-2 w-[220px] font-mono">{restData.info.avgRating} Stars</span>
+            <span className="px-2 w-[220px] font-thin">Devivered in {restData.info.sla.deliveryTime} Mins</span>
+            <span className="px-2 w-[220px] font-extralight">{restData.info.cuisines.join(", ")}</span>      
         </div>
     );
 }

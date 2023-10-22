@@ -1,4 +1,6 @@
 
+Chapter 6 : Exploring The World
+
 ===> Monolith Architecture
 
 
@@ -21,4 +23,25 @@ Ans: useEffect() is a hook in React, introduced in React 16.8, that allows you t
 	   - DOM manipulation,
 	   - setting up subscriptions, or 
 	   - manually changing the React component's state.
+	   
+===> When is useEffect() Called?
+Ans: * If No Dependency Array : useEffect() is called every time a component renders.
+       That is, useEffect() gets called every time AFTER a component is rendered, when the dependency array NOT PASSED as an argument
+	 Eg:
+	 useEffect(()=>{
+        console.log("useEffect is called");
+	 });
+	   
+	 * If The Dependency Array is EMPTY : useEffect() is called only AFTER FIRST render of a component
+	 Eg:
+	 useEffect(()=>{
+        console.log("useEffect is called");
+     },[]);
+	 
+	 * If The Dependency Array has some value / dependency : Then useEffect() is called every time the dependency is UPDATED
+	 Eg:
+	 useEffect(()=>{
+        console.log("useEffect is called");
+     },[loginLogoutBtn]);
+	 Here, loginLogoutBtn is the dependency given. SO every time this updates, useEffect will be called.
 	

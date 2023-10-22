@@ -1,0 +1,9 @@
+
+Chapter 8 :: Lets Get Classy
+
+===> In class components, why using super(props) is necessary in order to read the arguments passes?
+Ans: * In React class components, the super(props) statement is typically used in the constructor 
+       to call the constructor of the parent class (which is usually React.Component).
+	 
+	 * This is necessary because, when you create a class that extends another class in JavaScript, 
+	   you need to call the parent class's constructor before you can use "this" inside the child class.

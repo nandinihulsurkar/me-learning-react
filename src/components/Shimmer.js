@@ -1,13 +1,13 @@
-import { SHIMMER_GRID } from "../utils/constants";
+import shimmerLoadingImage from "../images/loading-state-shimmer.gif";
 
 const Shimmer = () => {
     return(
-        <div className="shimmer-container">
-            <diV><img className="shimmer-card" src={SHIMMER_GRID} /></diV>
-            <diV><img className="shimmer-card" src={SHIMMER_GRID} /></diV>
-            <diV><img className="shimmer-card" src={SHIMMER_GRID} /></diV>
-            <diV><img className="shimmer-card" src={SHIMMER_GRID} /></diV>
-            <diV><img className="shimmer-card" src={SHIMMER_GRID} /></diV>            
+        <div className="flex m-10 h-96">
+            <div className="w-96 h-40"><img src={shimmerLoadingImage} /></div>
+            <div className="w-96 h-40"><img src={shimmerLoadingImage} /></div>
+            <div className="w-96 h-40"><img src={shimmerLoadingImage} /></div>
+            <div className="w-96 h-40"><img src={shimmerLoadingImage} /></div>
+            <div className="w-96 h-40"><img src={shimmerLoadingImage} /></div>                       
         </div>
     );
 }

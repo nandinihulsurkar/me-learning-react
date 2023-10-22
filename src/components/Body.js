@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import RestorentCard from "./RestorentCard";
 import Shimmer from "./Shimmer";
 
@@ -39,15 +40,15 @@ const Body = () => {
     
     //Conditional rendering
     return newRestroDataList.length === 0 ? <Shimmer /> : (
-        <div className="body-container">
-            <div className="search-bar">
+        <div className="">
+            <div className="flex my-8 px-5">
                 <div>
-                    <input className="search-text-box" type="text" value={searchText} 
+                    <input className="border border-black border-solid mr-3 w-64 h-8" type="text" value={searchText} 
                         onChange = {(e)=>{
                             setSearchText(e.target.value);                            
                         }} >
                     </input>
-                    <button className="filter_btns"
+                    <button className="px-4 h-8 text-white bg-red-400 rounded-md mr-4"
                         onClick={() => {
                             const searchedRestroList = newRestroDataList.filter(
                                 (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -56,25 +57,26 @@ const Body = () => {
                             console.log(searchedRestroList.length);
                         }}
                     >Search</button>
+
+                    <button 
+                        className="px-4 h-8 text-white bg-red-400 rounded-md mr-4" 
+                        onClick={() => {
+                            const filteredRestList = newRestroDataList.filter(
+                                (res) => res.info.avgRating > 4
+                            );
+                            setFilteredRestroList(filteredRestList);
+                        }}
+                    >
+                    Top Rated Restaurants
+                    </button>
                 </div>
-                <button 
-                    className="filter_btns" 
-                    onClick={() => {
-                        const filteredRestList = newRestroDataList.filter(
-                            (res) => res.info.avgRating > 4.2
-                        );
-                        setFilteredRestroList(filteredRestList);
-                    }}
-                >
-                Top Rated Restaurants
-                </button>
+                
             </div>
-            <div className="restro-container">                
+            <div className="flex flex-wrap mx-5 items-center">                
                 {
                     filteredRestroList.map((resdata) => (
-                        <RestorentCard key={resdata.info.id} restData={resdata} />
+                        <Link key={resdata.info.id} to={"/restaurant/"+resdata.info.id}><RestorentCard restData={resdata} /></Link>
                     ))
-
                     //NOTE the key attribute in the component is given as it may generate Warning.
                     //WE can also give index as a key here. but React saya that shoud not use index as keys.
                 }           

@@ -1,0 +1,20 @@
+
+Chapter 10 Jo Dikta Hai Vo Bikta Hai
+
+===> What is sass ?
+Ans: * SASS : Syntactically Awesome Style Sheets
+     * Sass is something like writing CSS with some super powers.
+
+===> What is scss ?
+Ans: * SCSS : Senior Citizen Savings Scheme
+
+
+===> Normal CSS, Sass, Scss, Material UI, Bootstrap UI, Chakra UI, Styled Componends, Ant Design, Tailwind  :: CSS Libraries
+
+===> Tailwind CSS
+
+===> What is Postcss?
+Ans: * Postcss is a TOOL for transforming css with JavaScript
+     * The Parcel (The bundler in thi case), uses Postcss to understand the Tailwind css
+	 
+	 

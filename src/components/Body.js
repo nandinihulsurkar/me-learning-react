@@ -1,9 +1,10 @@
 
 import { Link } from "react-router-dom";
-import RestorentCard from "./RestorentCard";
+import RestorentCard, {ForAggregatedDiscount} from "./RestorentCard";
 import Shimmer from "./Shimmer";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import UserContext from "../utils/contexts/UserContext";
 
 const Body = () => {
 
@@ -19,6 +20,8 @@ const Body = () => {
     * arr = useState(restroDataList);
     * newRestroDataList = arr[0]; setNewRestroDataList = arr[1];
     */
+    //console.log("In Body - restro list == ");
+    //console.log(newRestroDataList);
 
     useEffect(() => {
         fetchData();
@@ -36,12 +39,16 @@ const Body = () => {
         setNewRestroDataList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
         setFilteredRestroList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    }    
+    }
     
+    const AggregatedDiscounts = ForAggregatedDiscount(RestorentCard);
+
+    const { loggedInUser, setLnUserInfo } = useContext(UserContext);
+
     //Conditional rendering
     return newRestroDataList.length === 0 ? <Shimmer /> : (
         <div className="">
-            <div className="flex my-8 px-5">
+            <div className="flex my-8 px-5 justify-center">
                 <div>
                     <input className="border border-black border-solid mr-3 w-64 h-8" type="text" value={searchText} 
                         onChange = {(e)=>{
@@ -54,7 +61,7 @@ const Body = () => {
                                 (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
                             );
                             setFilteredRestroList(searchedRestroList);
-                            console.log(searchedRestroList.length);
+                            //console.log(searchedRestroList.length);
                         }}
                     >Search</button>
 
@@ -69,13 +76,30 @@ const Body = () => {
                     >
                     Top Rated Restaurants
                     </button>
+                    
+                    <label>Username : </label>
+                    <input className="border border-black border-solid mr-3 w-40 h-8 p-2" 
+                        type="text" value={loggedInUser}
+                        onChange={(e) => {
+                            //hsetLnUserInfo();
+                            const uuInfo = {
+                                name: e.target.value,                                
+                            };
+                            setLnUserInfo(uuInfo)
+                            console.log(e.target.value);
+                        }}
+                    />                    
                 </div>
                 
             </div>
-            <div className="flex flex-wrap mx-5 items-center">                
+            <div className="flex flex-wrap mx-5 justify-center">                
                 {
                     filteredRestroList.map((resdata) => (
-                        <Link key={resdata.info.id} to={"/restaurant/"+resdata.info.id}><RestorentCard restData={resdata} /></Link>
+                        <Link key={resdata.info.id} to={"/restaurant/"+resdata.info.id}>                            
+                            {
+                                resdata.info.aggregatedDiscountInfoV3 ? <AggregatedDiscounts restData={resdata} /> : <RestorentCard restData={resdata} />
+                            }
+                        </Link>
                     ))
                     //NOTE the key attribute in the component is given as it may generate Warning.
                     //WE can also give index as a key here. but React saya that shoud not use index as keys.

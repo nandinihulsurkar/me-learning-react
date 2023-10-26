@@ -1,0 +1,18 @@
+
+Chapter 11 Data Is The New Oil
+
+===> Higher Order Components
+Ans: Higher Order Component is a Funstion which TAKES a component and RETURNS a component.
+     * It basically takes an existing component => enhances it a bit and => returns the component again.
+	 * It acts as a enhancer / component enhancer
+
+===> Why and When do we use Higher Order Components?
+Ans: to enhance the existing component
+
+===> Controlled and Un-controlled Components
+
+lifting the state up
+
+props drilling 
+
+===> createContext({}); useContext(contextNamehere);

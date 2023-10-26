@@ -1,18 +1,20 @@
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import itsMe from "../images/the-logo.jpg";
+import TestContext from "../utils/contexts/TestContext";
 
 const UserFun = (props) => {
 
     const [count1, setCount1] = useState(1);
-    
+
+    const tData = useContext(TestContext);
 
     const {name, mno, eid, location, dob} = props;
     return(
         <div className="p-4 w-[320px] h-[460px] m-2 rounded-2xl bg-gray-100 hover:bg-red-100 text-center" >
             <div><img className="w-48 h-48 rounded-lg"  src={itsMe}></img></div>
             <div className="text-red-500 font-semibold mt-2">This is a Functional Component</div>
-            <div className="mt-2 text-black-500 font-semibold">{name}</div>
+            <div className="mt-2 text-black-500 font-semibold">{name} : {tData.testName}</div>
             <div className="mt-2">{mno}</div>
             <div className="mt-2">{eid}</div>
             <div className="mt-2">{location}</div>

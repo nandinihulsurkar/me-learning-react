@@ -2,7 +2,8 @@
 import UserFun from "./UserFun";
 import UserClass from "./UserClass";
 import { Component } from "react";
-
+import UserContext
+ from "../utils/contexts/UserContext";
 //NOTE class AboutUs extends React.component === class AboutUs extends Component
 class AboutUs extends Component
 {
@@ -22,7 +23,13 @@ class AboutUs extends Component
                 <div className="text-center font-semibold text-3xl">About Us</div>
                 <div className="mt-2">
                     The content for about us will be replaced here soon. The content for about us will be replaced here soon. The content for about us will be replaced here soon. The content for about us will be replaced here soon. The content for about us will be replaced here soon. The content for about us will be replaced here soon. The content for about us will be replaced here soon. The content for about us will be replaced here soon. 
-                    <br/>about us. about us. about us. about us. about us. about us. about us. about us. about us. about us. about us. about us. about us.     
+                    <br/>about us. about us. about us. about us. about us. about us. about us. about us. about us. about us. about us. about us. about us. <br/>
+                
+                    <UserContext.Consumer>
+                        {({loggedInUser}) => (
+                            <span className="font-semibold mt-5">Logged In User Is :  {loggedInUser}</span>
+                        )}
+                    </UserContext.Consumer>
                 </div>
                     
                 <div className="flex flex-wrap m-4 justify-center">

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM  from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, useSearchParams } from "react-router-dom";
 
 import Header from './components/Header';     //OR './components/Header.js' BOTH are same
 import Body from './components/Body';
@@ -9,16 +9,32 @@ import ErrorPage from "./components/ErrorPage";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import RestaurantsMenu from "./components/RestaurantsMenu";
-//import useOnlineStatus from "./utils/useOnlineStatus";
-//import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/contexts/UserContext";
+import TestContext from "./utils/contexts/TestContext";
   
 const AppLayout = () => {
+
+    const [lnUserInfo, setLnUserInfo] = useState([]);
+
+    const lnUInfo = useEffect(() => {
+        const userData = {
+            name: "Nandini Hulsurkar",
+            gender: "Female",
+            isloggedIn: true,
+        };
+        setLnUserInfo(userData);
+    }, []);
+
     return(
-        <div className="app">
-            <Header />
-            <Outlet />            
-            <Footer />
-        </div>
+        
+        <UserContext.Provider value={{isUserLoggedIn:lnUserInfo.isloggedIn, loggedInUser:lnUserInfo.name, gender:lnUserInfo.gender, setLnUserInfo}}>
+            <div className="app">
+                <Header />
+                <Outlet />            
+                <Footer />
+            </div>
+        </UserContext.Provider>
+        
     );
 }
 
@@ -51,7 +67,7 @@ const appRouter = createBrowserRouter([
                 element: <ContactUs />
             },
             {
-                path: "/restaurant/:restId",
+                path: "/restaurant/:restaurantId",
                 element: <RestaurantsMenu />
             }
         ],

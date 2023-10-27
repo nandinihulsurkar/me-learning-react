@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 
 import { useState, useEffect, useContext } from 'react';
 import UserContext from "../utils/contexts/UserContext";
+import MyContext from "../utils/contexts/MyContext";
 
 const Body = () => {
 
@@ -44,7 +45,10 @@ const Body = () => {
     const AggregatedDiscounts = ForAggregatedDiscount(RestorentCard);
 
     const { loggedInUser, setLnUserInfo } = useContext(UserContext);
-
+   
+    const myData = useContext(MyContext);
+    const {myName, setMyInfo} = useContext(MyContext);
+    
     //Conditional rendering
     return newRestroDataList.length === 0 ? <Shimmer /> : (
         <div className="">
@@ -86,7 +90,7 @@ const Body = () => {
                                 name: e.target.value,                                
                             };
                             setLnUserInfo(uuInfo)
-                            console.log(e.target.value);
+                            //console.log(e.target.value);
                         }}
                     />                    
                 </div>
@@ -104,6 +108,23 @@ const Body = () => {
                     //NOTE the key attribute in the component is given as it may generate Warning.
                     //WE can also give index as a key here. but React saya that shoud not use index as keys.
                 }           
+            </div>
+            <div className="mt-5 px-5">
+                <h1 className="cursor-pointer text-red-500 font-semibold text-lg" onClick={() => {
+                    const myInfo = {
+                        myName: "Nandini Hulsurkar",
+                        mno: "1231234560",
+                        eid: "nandini@gmail.com",
+                        myHobbies: "watch hindi movies & web series, listning to music & spend quality time with my kids and family."
+                    };
+                    setMyInfo(myInfo);
+                }}>
+                    Click Here :-)
+                </h1>
+                <div>
+                    <h1 className="font-semibold">This data is coimg from Context with the default values.</h1>
+                    <span>Hi, My Name is {myData.myName}. I Love to {myData.myHobbies}. You can 📲 me on {myData.mno} OR drop an 📧 to {myData.eid} </span>
+                </div>
             </div>
         </div>
     );

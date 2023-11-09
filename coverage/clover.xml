@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1699095243220" clover="3.2.0">
+  <project timestamp="1699095243220" name="All files">
+    <metrics statements="24" coveredstatements="13" conditionals="6" coveredconditionals="3" methods="11" coveredmethods="4" elements="41" coveredelements="20" complexity="0" loc="24" ncloc="24" packages="3" files="6" classes="6"/>
+    <package name="components">
+      <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="4"/>
+      <file name="Header.js" path="D:\me-learning-react\src\components\Header.js">
+        <metrics statements="6" coveredstatements="6" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="3"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="18" count="9" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="50" count="1" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="sum.js" path="D:\me-learning-react\src\components\sum.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="15" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
+      <file name="appStore.js" path="D:\me-learning-react\src\utils\appStore.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+      <file name="cartSlice.js" path="D:\me-learning-react\src\utils\cartSlice.js">
+        <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+      </file>
+      <file name="useOnlineStatus.js" path="D:\me-learning-react\src\utils\useOnlineStatus.js">
+        <metrics statements="8" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils.contexts">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="UserContext.js" path="D:\me-learning-react\src\utils\contexts\UserContext.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

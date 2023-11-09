@@ -4,24 +4,27 @@ import Shimmer from "./Shimmer";
 import RestaurantsMenuCategory from "./RestaurantsMenuCategory";
 import { IMG_CDN_URL } from "../utils/constants";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const RestaurantsMenu = () => {
 
-    const { restaurantId } = useParams();    
-    const restaurantsMenu = useFetchRestaurantMenu(restaurantId);
+    const { restaurantId } = useParams();
+    const [vegOrNonveg, setVegOrNonveg] = useState("BOTH");
+     
+    const restaurantsMenu = useFetchRestaurantMenu(restaurantId, vegOrNonveg); 
     
-    const [showIndex, setShowIndex] = useState(0);    
-    
+    const [showIndex, setShowIndex] = useState(null);   
+
     if(restaurantsMenu === null) return <Shimmer />
     
     const {name, cuisines, city, areaName, avgRating, cloudinaryImageId} = restaurantsMenu?.cards[0]?.card?.card?.info;
     
-    const categories = restaurantsMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    var categories = restaurantsMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
         (c) =>
         c.card?.card?.["@type"]=="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-
+    //console.log(restaurantsMenu);
+    
     return(
         <div className="pl-3 p-3 w-[70%] m-auto">            
                        
@@ -38,6 +41,18 @@ const RestaurantsMenu = () => {
                     </ul>
                 </div>                                
             </div>
+
+            <div className="">
+                <select className="p-1 w-40 h-8 rounded-lg bg-red-200 text-black" 
+                    onChange={(e)=>{
+                        setVegOrNonveg(e.target.value);
+                    }} 
+                >
+                    <option value="BOTH">Veg & Non-Veg</option>
+                    <option value="VEG">Veg Only</option>
+                    <option value="NONVEG">Non-Veg Only</option>
+                </select>
+            </div>
                        
             {
                 categories.map((cat, index) => (
@@ -45,7 +60,7 @@ const RestaurantsMenu = () => {
                         key={cat?.card?.card.title} 
                         catData={cat.card?.card} 
                         shCatItems={index == showIndex ? true : false} 
-                        setShowIndex={() => setShowIndex(index)}                         
+                        setShowIndex={() => setShowIndex(index)}                                                                                 
                     />
                 ))
             }

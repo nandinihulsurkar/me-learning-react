@@ -12,6 +12,10 @@ import RestaurantsMenu from "./components/RestaurantsMenu";
 import UserContext from "./utils/contexts/UserContext";
 import MyContext from "./utils/contexts/MyContext";
 import MyExpContext from "./utils/contexts/MyExpContext";
+import Cart from "./components/cart";
+
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
   
 const AppLayout = () => {
 
@@ -38,20 +42,20 @@ const AppLayout = () => {
     }, []);
     
     return(
-        
-        <UserContext.Provider value={{isUserLoggedIn:lnUserInfo.isloggedIn, loggedInUser:lnUserInfo.name, gender:lnUserInfo.gender, setLnUserInfo}}>
-        <MyContext.Provider value={{myName: myInfo.myName, mno: myInfo.mno, eid: myInfo.eid, myHobbies: myInfo.myHobbies, setMyInfo}}>
-            <div className="app">
-                <Header />
-                <Outlet />
+        <Provider store={appStore}>
+            <UserContext.Provider value={{isUserLoggedIn:lnUserInfo.isloggedIn, loggedInUser:lnUserInfo.name, gender:lnUserInfo.gender, setLnUserInfo}}>
+            <MyContext.Provider value={{myName: myInfo.myName, mno: myInfo.mno, eid: myInfo.eid, myHobbies: myInfo.myHobbies, setMyInfo}}>
+                <div className="app">
+                    <Header />
+                    <Outlet />
 
-                <MyExpContext.Provider value={{totalExp:"8 Years", skills:"PHP, JQuery, MySQL, AJAX and NOW React with Tailwind :-)"}}>            
-                {<Footer />}
-                </MyExpContext.Provider>
-            </div>
-        </MyContext.Provider>
-        </UserContext.Provider>
-        
+                    <MyExpContext.Provider value={{totalExp:"8 Years", skills:"PHP, JQuery, MySQL, AJAX and NOW React with Tailwind :-)"}}>            
+                    {<Footer />}
+                    </MyExpContext.Provider>
+                </div>
+            </MyContext.Provider>
+            </UserContext.Provider>
+        </Provider>
     );
 }
 
@@ -86,6 +90,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restaurant/:restaurantId",
                 element: <RestaurantsMenu />
+            },
+            {
+                path: "/cart",
+                element: <Cart />
             }           
         ],
         errorElement: <ErrorPageLayout />

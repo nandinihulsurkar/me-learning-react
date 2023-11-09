@@ -1,0 +1,108 @@
+
+Chapter 12 : Lets-Build-Our-App-Redux
+
+===> What is Redux?
+Ans: Redux ia an open-source JavaScript Library used to manage / handle the State of our application
+     NOTE: In React, "handling the state of our application" refers to the management of data within a component or across components to keep track of changes, control the rendering of components, and maintain the application's interactivity. 
+           State represents data that can change over time and affects how a component behaves or renders.
+
+===> Is Redux mandatory to buils react applications?
+Ans: NOO.. We can build react applications without Redux as well.
+     The small or medium sized applications can be built withour Redux, without any problem.
+	 If the applications are too large, its useful to use Redux as there will be lots and lots of components dealing with data read / write operations.
+
+===> Is Redux part of React?
+Ans: NOO.. Redux & React are 2 different libraries
+
+===> Is Redux the only library to manage the states?
+Ans: NOO.. There is other library known as Zustand, gaining lot of popularity now a days.
+     Apart from this there are many Eg: MobX, Recoil, Jotai context, HookState etc ..
+	 
+===> Why do we use Redux?
+Ans: Redux is primarly used for handling the states of our application.
+     * Another adv of using Redux is, our applications become easier to Debug. Redux Dev Tools helps to debug the application very easily.
+
+===> Why Redux Toolkit(RTK)?
+
+===> What is Redux Store?
+Ans: Redux store is a big JS object with a lot og data inside it and it has kept in a global central place
+     * Global central place: any component in a React application can access it from anywhere in the application. It can write data / read data
+	 
+===> What is a slice in Redux Store?
+Ans: A slice is a logical portion of the Redux store. (Logical portion : data to be managed for a perticular task or set of related tasks.)
+
+===> Why do we need Slices?
+Ans: Redux store is a very big JS Object. We use slices of it in order to manage the data in it in a better and easy way
+     Eg:
+	 * All the data related to a cart will go into a slice, lets call it as Cart Slice
+	 * All the data related to a user will go into a slice, lets call it as User Slice
+	 * All the data related to the recent Search will go into a slice, lets call it Recent Rearch Slice
+	 and so on.
+	 Depending on the Action that needs data to be read from / written to, we can create these slices.
+
+===> What is a dispatcher? Why is it required?
+Ans: We can not directly modify the Slice. FOr this we need something called Dispatcher. 
+
+===> How can we write data into Slices?
+Ans: WE can not directly modify the slice.
+     * when an action takes place to modify the Slices
+	   First, it Dispatches an ACTION ==> This action, calls a FUNCTION (Known as a Reducer) ---> Then this reducer function will modify the Slice of a Redux store
+
+===> How do we Read data from Slice?
+Ans: To read the data from the slice we use a function Called as "Selector"
+     When we want to read the data from the slice we call it as "Subscribing to the store" --> Which uses the Selector function to fetch the data and update the appropriate component
+	 
+===> How to start using Redux Toolkit?
+Ans: Steps to start using Redux Toolkit & React-Redux
+	
+	1. First of all install "@redux/toolkit" & "react-redux" using the commands "npm install @redux/toolkit" and "npm install react-redux"
+	
+	2. Then create / configure the redux store / application store using configureStore() function provided by the @redus/toolkit
+	   
+	   create a appStore.js file in utils
+	   
+	   import { configureStore } from "@redux/toolkit";
+	   import cartReducer from "./cartSlice";
+	   
+	   const appStore = configureStore({
+			reducer: {
+				cart: cartReducer;
+			},
+	   });
+	   export default appStore;
+	   
+	3. Once the store is configured, provide this store to our project / application where we want to make the store available
+	   
+	   import {Provider} from "react-redux";
+	   import appStore from "../utils/appStore";
+	   
+	   <Provider store="appStore">
+			<Header />
+			<Outlet />
+			<Footer />
+	   </Provider>
+	   
+	4. After that we have to create the Slices of the redux store : create a file cartSlice.js in utils folder
+	   
+	   import {createSlice} from "@redux/toolkit";
+	   
+	   const cartSlice = createSlice({
+			name: "cart",
+			initialState: {
+				items: [],
+			},
+			reducer: {
+				addToCart: (state, action) => {
+					state.item.push(action.payload);
+				},				
+				removeFromCart: (state, action) => {
+					state.item.pop();
+				},
+				emptyTheCart: (state, action) => {
+					state.item.length = 0;
+				},
+			},
+	   });
+	   
+	   export const { addToCart, removeFromCart, emptyTheCart} cartSlice.actions;
+	   export default cartSlice.reducer;

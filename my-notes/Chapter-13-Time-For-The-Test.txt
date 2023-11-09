@@ -1,0 +1,32 @@
+
+Chapter 13 : Time For The Test
+
+===> What are the different types of testing that a developer can do?
+Ans: * Manual Testing : check everything manually
+     * Writing the test cases : Write the code to check whether the code / functionality / module is working
+
+===> A developer can write test cases for the following 3 types of testing
+     * Unit Testing : Testing the components in isolation
+	 
+	 * Intigration Testing : Testing the integration of the components.
+	 
+	 * End TO End Testing (e2e testing) : Test the complete app from the begininh to end
+	   Eg: from the user lands in the app till they leave the app. They need some tools to do testing
+
+===> React Testing Library uses something know as "jest"
+     * jest is a delightful JavaScript Testing Framework with a focus on simplicity.
+	 * It works with projects using : Babel, React, Angular, Node, Vue many more
+	   
+===> Steps to setup the environment to write the test cases to test the app
+     1. we'll be using the "React Testing Library" to write the test cases for testing
+	 2. Install react testing library : "npm install -D @testing-library/react"
+	 3. Install jest : "npm install -D jest"
+	 4. Install Babel Dependences: npm install --save-dev babel-jest @babel/core @babel/preset-env
+	 5. Configure the Babel
+	 6. configure parcel's config file to disable default Babel transpilation	 
+	 7. Do jest configuration : npx jest --init : this will create a jest.config.js file in out root directory	 
+	 8. Install js dom library : npm install -D jest-environment-jsdom	 
+	 9. Install @babel/preset-react : to make worl JSX in out test cases
+	 10. Include @babel/preset-react inside the babel config
+	 
+	 11. Install @testing-library/jest-dom : npm install -D @testing-library/jest-dom

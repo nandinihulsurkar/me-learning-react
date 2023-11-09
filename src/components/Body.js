@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 import { useState, useEffect, useContext } from 'react';
 import UserContext from "../utils/contexts/UserContext";
 import MyContext from "../utils/contexts/MyContext";
+import MyDetails from "./MyDetails";
 
 const Body = () => {
 
@@ -23,6 +24,7 @@ const Body = () => {
     */
     //console.log("In Body - restro list == ");
     //console.log(newRestroDataList);
+    //console.log(filteredRestroList);
 
     useEffect(() => {
         fetchData();
@@ -38,7 +40,7 @@ const Body = () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
         setNewRestroDataList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
+        
         setFilteredRestroList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
     
@@ -47,16 +49,29 @@ const Body = () => {
     const { loggedInUser, setLnUserInfo } = useContext(UserContext);
    
     const myData = useContext(MyContext);
-    const {myName, setMyInfo} = useContext(MyContext);
-    
+    const {myInfo, setMyInfo} = useContext(MyContext);
+
+    const [clickMeCount, setClickMeCount] = useState(0);
+    useEffect(()=>{
+        setClickMeCount(0);
+
+        const myD = {
+            myName: "Default UseR",
+            mno: "1234567891",
+            eid: "default@gmail.coM",
+            myHobbies: "be default all the timee :-)",
+        };
+        setMyInfo(myD);   
+    },[]);
+  
     //Conditional rendering
     return newRestroDataList.length === 0 ? <Shimmer /> : (
         <div className="">
             <div className="flex my-8 px-5 justify-center">
                 <div>
-                    <input className="border border-black border-solid mr-3 w-64 h-8" type="text" value={searchText} 
+                    <input className="border border-black border-solid mr-3 p-2 w-52 h-8" type="text" value={searchText} 
                         onChange = {(e)=>{
-                            setSearchText(e.target.value);                            
+                            setSearchText(e.target.value);   
                         }} >
                     </input>
                     <button className="px-4 h-8 text-white bg-red-400 rounded-md mr-4"
@@ -64,22 +79,58 @@ const Body = () => {
                             const searchedRestroList = newRestroDataList.filter(
                                 (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
                             );
-                            setFilteredRestroList(searchedRestroList);
-                            //console.log(searchedRestroList.length);
+                            searchText == " " ? setFilteredRestroList(newRestroDataList) : setFilteredRestroList(searchedRestroList);
+                            console.log(searchText+" - "+searchedRestroList.length);
+
+                            /*if(searchText == " ")                                
+                                setFilteredRestroList(newRestroDataList);
+                            else{
+                                const searchedRestroList = newRestroDataList.filter(
+                                    (res) => res.info.name.toLowerCase() == searchText.toLowerCase()// console.log(res.info.name.toLowerCase()+"  ===? "+searchText.toLowerCase()) //
+                                );
+                                console.log(searchedRestroList);
+                                setFilteredRestroList(searchedRestroList);
+                            }*/
                         }}
                     >Search</button>
 
-                    <button 
-                        className="px-4 h-8 text-white bg-red-400 rounded-md mr-4" 
-                        onClick={() => {
-                            const filteredRestList = newRestroDataList.filter(
-                                (res) => res.info.avgRating > 4
-                            );
-                            setFilteredRestroList(filteredRestList);
-                        }}
+                    <select className="p-1 h-9 bg-red-400 text-white mr-4 rounded-md"  
+                        onChange={(e)=>{
+                            if(e.target.value == "Top Rated Restaurants"){
+                                const newList = newRestroDataList.filter(
+                                    (res)=> res.info.avgRating > 4.3
+                                );
+                                setFilteredRestroList(newList);
+                            }
+                            else if(e.target.value == "Del within 20 Mins"){
+                                console.log("Case : Del within 20 Mins");
+                                const delList = newRestroDataList.filter(
+                                    (res)=> res.info.sla['deliveryTime'] <= 20
+                                );
+                                setFilteredRestroList(delList);
+                            }
+                            else if(e.target.value=="1K+ Ratings"){
+                                const k1Ratings = newRestroDataList.filter(
+                                    (res)=> res.info.totalRatingsString.includes("K+")
+                                );
+                                setFilteredRestroList(k1Ratings);
+                            }
+                            else if(e.target.value=="Open For Now"){
+                                const openList = newRestroDataList.filter(
+                                    (res)=> res.info.avgRating.isOpen ? res : []
+                                );
+                                setFilteredRestroList(openList);
+                            }
+                            else
+                                setFilteredRestroList(newRestroDataList);
+                        }} 
                     >
-                    Top Rated Restaurants
-                    </button>
+                        <option value="">-- Quick Search --</option>
+                        <option value="Top Rated Restaurants">Top Rated Restaurants</option>
+                        <option value="Del within 20 Mins">Del within 20 Mins</option>
+                        <option value="1K+ Ratings">1K+ Ratings</option>
+                        <option value="Open For Now">Open For Now</option>
+                    </select>                    
                     
                     <label>Username : </label>
                     <input className="border border-black border-solid mr-3 w-40 h-8 p-2" 
@@ -111,20 +162,53 @@ const Body = () => {
             </div>
             <div className="mt-5 px-5">
                 <h1 className="cursor-pointer text-red-500 font-semibold text-lg" onClick={() => {
-                    const myInfo = {
-                        myName: "Nandini Hulsurkar",
-                        mno: "1231234560",
-                        eid: "nandini@gmail.com",
-                        myHobbies: "watch hindi movies & web series, listning to music & spend quality time with my kids and family."
-                    };
+                    const cmc = clickMeCount+1;                    
+                    (cmc<=4) ? setClickMeCount(cmc) : setClickMeCount(0);
+                    
+                    switch(cmc){
+                        case 1: var myInfo = {
+                            myName: "Nandini Hulsurkar",
+                            mno: "1231234560",
+                            eid: "nandini@gmail.com",
+                            myHobbies: "watch hindi movies & web series, listning to music & spend quality time with my kids and family."
+                        };
+                        break;
+                        case 2: var myInfo = {
+                            myName: "Jagdish Malgar",
+                            mno: "0104198400",
+                            eid: "jacks@gmail.com",
+                            myHobbies: " play cricket and snooker, travel wth friends and family"
+                        };
+                        break;
+                        case 3: var myInfo = {
+                            myName: "Ansh Malgar",
+                            mno: "0602201500",
+                            eid: "ansh@gmail.com",
+                            myHobbies: " play football, draw and irritate my mumma and brother :-)"
+                        };
+                        break;
+                        case 4: var myInfo = {
+                            myName: "Druva Malgar",
+                            mno: "0802202100",
+                            eid: "druvamonster@gmail.com",
+                            myHobbies: " Play play play and just play all the time :-)"
+                        };
+                        break;
+                        default: var myInfo = {
+                            myName: "Default User",
+                            mno: "1234567890",
+                            eid: "default@gmail.com",
+                            myHobbies: "be default all the time :-)"
+                        };
+
+                    }                   
                     setMyInfo(myInfo);
                 }}>
-                    Click Here :-)
-                </h1>
-                <div>
-                    <h1 className="font-semibold">This data is coimg from Context with the default values.</h1>
-                    <span>Hi, My Name is {myData.myName}. I Love to {myData.myHobbies}. You can 📲 me on {myData.mno} OR drop an 📧 to {myData.eid} </span>
-                </div>
+                Click Me
+                </h1>{clickMeCount}
+                
+               
+                <MyDetails theData={myData} />
             </div>
         </div>
     );

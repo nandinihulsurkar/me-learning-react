@@ -1,10 +1,12 @@
-import contactImg from "../images/cu-contact.png"
+import contactImg from "../images/cu-contact.png";
 import complaintImg from "../images/cu-complaint.png";
 import preOrderImg from "../images/cu-pre-order.png";
 import orderEnqImg from "../images/cu-order-enquiry.png";
 
 import MyContext from "../utils/contexts/MyContext";
 import { useContext } from "react";
+
+import MyDetails from "./MyDetails";
 
 const ContactUs = () => {
 
@@ -62,9 +64,8 @@ const ContactUs = () => {
             }                   
             </div>
 
-            <div className="m-4">
-            <h1 className="font-semibold">This data is coimg from Context with the default values.</h1>
-                    <span>Hi, My Name is {myData.myName}. I Love to {myData.myHobbies}. You can 📲 me on {myData.mno} OR drop an 📧 to {myData.eid} </span>
+            <div className="m-5">
+                <MyDetails theData={myData} />
             </div>           
         </div>
     );

@@ -1,13 +1,81 @@
 
+	Node JS Tutorial : https://www.youtube.com/watch?v=IIpiLZGTWuo&list=PLwGdqUZWnOp00IbeN0OtL9dmnasipZ9x8&ab_channel=ThapaTechnical
+	
+	Node JS : https://www.google.com/search?q=how+to+save+data+into+database+coming+from+react+js+nodejs&sca_esv=580743629&sxsrf=AM9HkKkzv1WgXxA4Zqgstt4bM1BqyJSBLQ%3A1699503942305&ei=Rl9MZY-fEoiJ4-EPuaqdkAs&oq=how+to+save+data+into+database+coming+from+react+js+node&gs_lp=Egxnd3Mtd2l6LXNlcnAiOGhvdyB0byBzYXZlIGRhdGEgaW50byBkYXRhYmFzZSBjb21pbmcgZnJvbSByZWFjdCBqcyBub2RlKgIIADIFECEYoAFIhzRQqhJY0SZwAXgBkAEAmAHIAaABrAWqAQUwLjQuMbgBA8gBAPgBAcICChAAGEcY1gQYsAPCAggQIRgWGB4YHcICBxAhGKABGAriAwQYACBBiAYBkAYI&sclient=gws-wiz-serp#fpstate=ive&vld=cid:084b25f9,vid:fPuLnzSjPLE,st:0
+	
+	Libraries Installed
+	
+	* react
+	* react-dom
+	
+	--------------------------------------------------------------------------------------------------------------------------------------------
+	 *react-router-dom : Episode 7 : Finding The Path
+	--------------------------------------------------------------------------------------------------------------------------------------------
+	 import { createBrowserRouter, RouterProvider, Outlet, Link, useRouteError, useParams } from "react-router-dom";
+	 
+	 * WHY createBrowserRouter, when there are many other ways to create the routes. BECAUSE this is recomended by the react documentation
+	 
+	 * RouterProvider : After creating the routes, we have to provide it to our APP / Project
+	 
+	 * Outlet : used to load the children components
+	 
+	 * Link : Used to provide the links
+	 
+	 * useRouteError : HOOK to check the error that could occur for the wrong url path
+	 
+	 * useParams: HOOK to read the parums
+	-----------------------------------------------------------------------------------------------------------------------------------------------
 
-https://github.com/chetannada/Namaste-React/blob/main/Chapter%2003%20-%20Laying%20the%20Foundation/Theory/Session%203%20Theory.md
 
-import { createBrowserRouter, RouterProvider, Outlet, useParams } from "react-router-dom";
+
+	--------------------------------------------------------------------------------------------------------------------------------------------
+	 *tailwindcss : Episode 10 : Jo Dikta Hai Vo Bikta Hai
+	--------------------------------------------------------------------------------------------------------------------------------------------
+	 * Install the tailwindcss and postcss : "npm install -D tailwindcss postcss"
+	   --> tailwindcss : is a CSS Framework that allows us to rapidly build modern websites "without ever leaving out HTML"
+	   --> postcss : is a TOOL for transforming css with javascript. A tool that facilitate the manipulation and modification of CSS using JavaScript
+	   --> The Parcel (The bundler in thi case), uses Postcss to understand the Tailwind css
+	   
+	 * run the command "npx tailwindcss init" to initiate the tailwind css and generate the "tailwind.config.js" file in the root file
+	   --> this is a configuration file for the tailwind css
+	   
+	 * Then create the file ".postcssrc" in the root directory.
+	   --> this is the configuration file for the postcss
+	   --> By creating this file, we are telling the postcss that we are using tailwindcss in our app for styling
+	   --> The Parcel (The bundler in thi case), uses Postcss config file to understand the Tailwind css
+	-----------------------------------------------------------------------------------------------------------------------------------------------
+
+	--------------------------------------------------------------------------------------------------------------------------------------------
+	 Episode 11 : Data Is The New Oil - (Higher Order Components, Props Drilling, Context, controlled and uncontrolled components, Lifting The State Up)
+	--------------------------------------------------------------------------------------------------------------------------------------------
+	 * Higher Order Component is a Funstion which TAKES a component and RETURNS a component.
+       --> It basically takes an existing component => enhances it a bit and => returns the component again.
+	   --> It acts as a enhancer / component enhancer
+	   --> Basically we need Higher Order Components to enhance the existing component
+	   
+	 * Props Drilling : The processing of passing the Data to the child components THROUGH props is called Props Drilling
+	 
+	 * Context: Global place where data can be kept and can be accessed by any component
+	-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 
 import { useState, useEffect, useContext } from "react";   === HOOKS
 
 import { createContext } from "react";
 
 import React, { lazy, Suspence } from "react";
+
+//Redux Toolkit
+import {configureStore, createSlice } from "@reduxjs/toolkit";
+import {Provider} from "react-redux";
+import { useSelector } from "react-redux";
+
+
+
+TESTING Library : used for writing test cases 
+** React Testing Library
 
 

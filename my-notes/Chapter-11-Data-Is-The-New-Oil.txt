@@ -16,3 +16,6 @@ lifting the state up
 props drilling 
 
 ===> createContext({}); useContext(contextNamehere);
+
+
+ 

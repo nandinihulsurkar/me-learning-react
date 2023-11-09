@@ -2,8 +2,7 @@
 import UserFun from "./UserFun";
 import UserClass from "./UserClass";
 import { Component } from "react";
-import UserContext
- from "../utils/contexts/UserContext";
+import UserContext from "../utils/contexts/UserContext";
 //NOTE class AboutUs extends React.component === class AboutUs extends Component
 class AboutUs extends Component
 {
